@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 
 const port = process.env.PORT || 8080;
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -19,35 +20,35 @@ hbs.registerHelper('message', (text) => {
     return text.toUpperCase();
 })
 
-app.use((request,response,next) => {
-    var time = new Date ().toString();
+// app.use((request,response,next) => {
+    // var time = new Date ().toString();
    // console.log(`${time}: ${request.method} ${request.url}`);
-   var log = (`${time}: ${request.method} ${request.url}`);
-    fs.appendFile('server.log', log + '/n', (error) => {
-        if (error) {
-            console.log('Unable to log message');
-        }
-    });
-        next();
-});
+//    var log = (`${time}: ${request.method} ${request.url}`);
+    // fs.appendFile('server.log', log + '/n', (error) => {
+        // if (error) {
+            // console.log('Unable to log message');
+        // }
+    // });
+        // next();
+//  });
 
-app.use((request,response,next) => {
-    response.render('main.hbs',{
-        title : 'Info Page',
-        year: new Date().getFullYear(),
-        welcome: 'The Homepage',
-        heading : 'Info'
-    });
-    var time = new Date ().toString();
+// app.use((request,response,next) => {
+    // response.render('main.hbs',{
+        // title : 'Info Page',
+        // year: new Date().getFullYear(),
+        // welcome: 'The Homepage',
+        // heading : 'Info'
+    // });
+    // var time = new Date ().toString();
    // console.log(`${time}: ${request.method} ${request.url}`);
-   var log = (`${time}: ${request.method} ${request.url}`);
-    fs.appendFile('server.log', log + '/n', (error) => {
-        if (error) {
-            console.log('Unable to log message');
-        }
-    });
-        next();
-});
+//    var log = (`${time}: ${request.method} ${request.url}`);
+    // fs.appendFile('server.log', log + '/n', (error) => {
+        // if (error) {
+            // console.log('Unable to log message');
+        // }
+    // });
+        // next();
+// });
 
 
 app.get('/home', (request, response) => {
@@ -101,5 +102,5 @@ app.get('/404', (request, response) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is listening on ${port}`);
+    console.log(`Server is up on ${port}`);
 });
