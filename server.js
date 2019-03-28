@@ -77,6 +77,15 @@ app.get('/web',(request, response) => {
     });
 });
 
+app.get('/login', (request, response) => {
+    response.render('login.hbs', {
+            title : 'Login Page',
+            year: new Date().getFullYear(),
+            welcome: 'The Homepage',
+            heading : 'Login'
+        });
+});
+
 app.get('/weather', (request, response) => {
     response.render('weather.hbs')
         var weatherRequest = (capital, countryCode) => {
