@@ -79,7 +79,7 @@ app.get('/web',(request, response) => {
 
 app.get('/login', (request, response) => {
     response.render('login.hbs', {
-            title : 'Login Page',
+            title : 'ogin Page',
             year: new Date().getFullYear(),
             welcome: 'The Homepage',
             heading : 'Login'
