@@ -50,7 +50,7 @@ hbs.registerHelper('message', (text) => {
 // });
 
 
-app.get('/home', (request, response) => {
+app.get('/', (request, response) => {
     response.render('home.hbs', {
             title : 'Info Page',
             year: new Date().getFullYear(),
@@ -79,7 +79,7 @@ app.get('/web',(request, response) => {
 
 app.get('/login', (request, response) => {
     response.render('login.hbs', {
-            title : 'ogin Page',
+            title : 'Login Page',
             year: new Date().getFullYear(),
             welcome: 'The Homepage',
             heading : 'Login'
